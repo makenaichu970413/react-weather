@@ -37,8 +37,9 @@ const RouterElements = createRoutesFromElements(
   </Route>
 );
 
-const basename = `/${BASE_PATH}`;
-const router = createBrowserRouter(RouterElements, { basename });
+// const basename = `/${BASE_PATH}`;
+// const router = createBrowserRouter(RouterElements, { basename });
+const router = createBrowserRouter(RouterElements);
 
 //? Hot Module Replacement (HMR) for router:
 //? * Maintains application stability during development

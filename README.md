@@ -22,7 +22,7 @@ npm install
 You need an API key from [OpenWeather](https://openweathermap.org/api). Once you have it, create a `.env` file in the root directory and add:
 
 ```env
-VITE_OPENWEATHER_API_KEY=your_api_key_here
+VITE_API_KEY_WEATHER=your_api_key_here
 ```
 
 ## Running the Project
