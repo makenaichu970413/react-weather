@@ -1,8 +1,8 @@
 export const ICON = {
   // SUN: `${BASE_PATH}/src/assets/sun.png`,
   // CLOUD: `${BASE_PATH}/src/assets/cloud.png`,
-  SUN: `src/assets/sun.png`,
-  CLOUD: `src/assets/cloud.png`,
+  SUN: `assets/sun.png`,
+  CLOUD: `assets/cloud.png`,
 };
 
 export const INIT_SEARCH_COUNTRY = "Singapore";
