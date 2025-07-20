@@ -1,0 +1,117 @@
+/* Mobile responsive styles */
+@media (max-width: 600px) {
+  .search-container {
+    margin-bottom: 150px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    /* City input takes available space, button auto */
+    grid-template-areas: "country country" "city buttons";
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .search-container .search-input-ctrl {
+    width: 100%;
+  }
+  .search-container .search-input-ctrl .search-input {
+    height: 50px;
+    border-radius: 10px;
+  }
+  .search-container .search-input-ctrl:first-of-type {
+    grid-area: country;
+  }
+  .search-container .search-input-ctrl:nth-of-type(2) {
+    grid-area: city;
+  }
+  .search-container .search-buttons {
+    grid-area: buttons;
+  }
+  .search-container .search-buttons .button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .search-container .search-buttons .button svg {
+    scale: 0.9;
+  }
+  .result-container {
+    color: var(--black);
+    padding: 20px 20px;
+    border-radius: 20px;
+  }
+  .result-container .weather-icon {
+    scale: 1.4;
+    top: -70px;
+    right: 30px;
+  }
+  .result-container .weather-info {
+    flex-direction: column;
+  }
+  .result-container .weather-info .weather-text {
+    width: 50%;
+  }
+  .result-container .weather-info .weather-text .temperature {
+    font-size: 90px;
+  }
+  .result-container .weather-info .weather-details {
+    width: 50%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+  .result-container .weather-info .weather-details .detail {
+    font-size: 15px;
+  }
+  .result-container .weather-info .weather-details .detail .detail-label {
+    margin-right: 0px;
+  }
+  .result-container .weather-info .weather-details .clouds {
+    order: 1;
+  }
+  .result-container .weather-info .weather-details .humidity {
+    order: 2;
+  }
+  .result-container .weather-info .weather-details .datetime {
+    order: 3;
+  }
+  .history-container {
+    padding: 15px;
+  }
+  .history-container h3 {
+    font-size: 19px;
+  }
+  .history-container .history-items .history-item .history-detail {
+    width: 60%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .history-container .history-items .history-item .history-actions {
+    width: 30%;
+  }
+  .history-container .history-items .history-item .history-actions .action-button {
+    width: 40px;
+    height: 40px;
+  }
+  .history-container .history-items .history-item .history-actions .action-button svg {
+    width: 20px;
+    height: 20px;
+  }
+  .history-item {
+    padding: 8px;
+  }
+  .history-date {
+    font-size: 11px;
+    margin-right: 10px;
+  }
+  .action-button {
+    width: 24px;
+    height: 24px;
+  }
+  .action-button svg {
+    width: 12px;
+    height: 12px;
+  }
+}/*# sourceMappingURL=style-mobile.css.map */

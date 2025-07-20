@@ -1,0 +1,165 @@
+:root {
+    --purple: #7244b8;
+    --gray: gray;
+    --black: black;
+}
+
+.light {
+    background: url('/src/assets/bg-light.png') no-repeat center center;
+
+    .search-container {
+        .search-input {
+            background-color: rgba(255, 255, 255, 0.2);
+
+            input {
+                color: var(--black);
+            }
+        }
+
+        .search-invalid {
+            color: #B12C00;
+        }
+
+        .search-buttons {
+            .button {
+                background: var(--purple);
+            }
+
+            .clear {
+                background: #B12C00;
+            }
+        }
+    }
+
+    .result-container {
+        background-color: rgba(255, 255, 255, 0.25);
+        border: 2px solid rgba(255, 255, 255, 0.25);
+
+        .weather-info {
+            .weather-text {
+                h2 {
+                    color: var(--black);
+                }
+
+                .temperature {
+                    color: var(--purple);
+                }
+
+                .high-low {
+                    color: var(--black);
+                }
+
+                .location {
+                    color: var(--gray);
+                }
+            }
+
+            .weather-details {
+                .detail {
+                    color: var(--gray);
+                }
+            }
+        }
+    }
+
+    .history-container {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: var(--black);
+
+        .history-items {
+            .history-item {
+                background-color: rgba(255, 255, 255, 0.30);
+
+                .history-actions {
+
+                    .action-button {
+                        color: var(--gray);
+                        background-color: white;
+                        border: 2px solid white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    background: url('/src/assets/bg-dark.png') no-repeat center center;
+
+
+    .search-container {
+        .search-input {
+            background-color: rgba(0, 0, 0, 0.4);
+
+            input {
+                color: white;
+            }
+        }
+
+        .search-invalid {
+            color: #FB6D48;
+        }
+
+        .search-buttons {
+            .button {
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            .clear {
+                background: #901E3E;
+            }
+        }
+    }
+
+    .result-container {
+        background-color: rgba(0, 0, 0, 0.20);
+        border: 2px solid transparent;
+
+        .weather-info {
+            .weather-text {
+                h2 {
+                    color: white;
+                }
+
+                .temperature {
+                    color: white;
+                }
+
+                .high-low {
+                    color: white;
+                }
+
+                .location {
+                    color: white;
+                }
+            }
+
+            .weather-details {
+                .detail {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .history-container {
+        background-color: rgba(0, 0, 0, 0.25);
+        color: white;
+
+        .history-items {
+            .history-item {
+                background-color: rgba(0, 0, 0, 0.27);
+
+                .history-actions {
+
+                    .action-button {
+                        color: white;
+                        background-color: transparent;
+                        border: 2px solid white;
+                    }
+                }
+
+            }
+        }
+    }
+}

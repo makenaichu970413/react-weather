@@ -1,0 +1,105 @@
+:root {
+  --purple: #7244b8;
+  --gray: gray;
+  --black: black;
+}
+
+.light {
+  background: url("/src/assets/bg-light.png") no-repeat center center;
+}
+.light .search-container .search-input {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.light .search-container .search-input input {
+  color: var(--black);
+}
+.light .search-container .search-invalid {
+  color: #B12C00;
+}
+.light .search-container .search-buttons .button {
+  background: var(--purple);
+}
+.light .search-container .search-buttons .clear {
+  background: #B12C00;
+}
+.light .result-container {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+}
+.light .result-container .weather-info .weather-text h2 {
+  color: var(--black);
+}
+.light .result-container .weather-info .weather-text .temperature {
+  color: var(--purple);
+}
+.light .result-container .weather-info .weather-text .high-low {
+  color: var(--black);
+}
+.light .result-container .weather-info .weather-text .location {
+  color: var(--gray);
+}
+.light .result-container .weather-info .weather-details .detail {
+  color: var(--gray);
+}
+.light .history-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--black);
+}
+.light .history-container .history-items .history-item {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.light .history-container .history-items .history-item .history-actions .action-button {
+  color: var(--gray);
+  background-color: white;
+  border: 2px solid white;
+}
+
+.dark {
+  background: url("/src/assets/bg-dark.png") no-repeat center center;
+}
+.dark .search-container .search-input {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.dark .search-container .search-input input {
+  color: white;
+}
+.dark .search-container .search-invalid {
+  color: #FB6D48;
+}
+.dark .search-container .search-buttons .button {
+  background: rgba(0, 0, 0, 0.6);
+}
+.dark .search-container .search-buttons .clear {
+  background: #901E3E;
+}
+.dark .result-container {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+}
+.dark .result-container .weather-info .weather-text h2 {
+  color: white;
+}
+.dark .result-container .weather-info .weather-text .temperature {
+  color: white;
+}
+.dark .result-container .weather-info .weather-text .high-low {
+  color: white;
+}
+.dark .result-container .weather-info .weather-text .location {
+  color: white;
+}
+.dark .result-container .weather-info .weather-details .detail {
+  color: white;
+}
+.dark .history-container {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+}
+.dark .history-container .history-items .history-item {
+  background-color: rgba(0, 0, 0, 0.27);
+}
+.dark .history-container .history-items .history-item .history-actions .action-button {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+}/*# sourceMappingURL=style-theme.css.map */
