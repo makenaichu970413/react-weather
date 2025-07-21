@@ -114,4 +114,12 @@
     width: 12px;
     height: 12px;
   }
+}
+@media (max-width: 400px) {
+  .search-container {
+    grid-template-columns: 225px auto;
+  }
+  .result-container .weather-info .weather-details .detail {
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=style-mobile.css.map */
