@@ -12,8 +12,5 @@ export const DOMAIN = {
 };
 
 //? NEW
-// https://api.openweathermap.org/geo/1.0/direct?q=Brazil&limit=1&appid=9f64903847641d555c146180624a5ca6
-// https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid=9f64903847641d555c146180624a5ca6
-
-//! OLD
-// https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9f64903847641d555c146180624a5ca6
+// https://api.openweathermap.org/geo/1.0/direct?q=Brazil&limit=1&appid=API_KEY
+// https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid=API_KEY
