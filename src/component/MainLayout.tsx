@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import ToggleTheme from "./ToggleTheme";
 import { useTheme } from "../context";
+import AOS from "./AOS";
 
 declare type PMainLayout = { children: ReactNode };
 
@@ -9,11 +10,15 @@ export function MainLayout(props: PMainLayout) {
   const { theme } = useTheme();
 
   return (
-    <div className={`app ${theme === "LIGHT" ? "light" : "dark"}`}>
-      <ToggleTheme />
+    <>
+      <AOS />
 
-      {children}
-    </div>
+      <div className={`app ${theme === "LIGHT" ? "light" : "dark"}`}>
+        <ToggleTheme />
+
+        {children}
+      </div>
+    </>
   );
 }
 

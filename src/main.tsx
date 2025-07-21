@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import "./style/style-theme.css";
 import "./style/style.css";
 import "./style/style-mobile.css";
+import "aos/dist/aos.css";
 
 //? Component
 import App from "./App.tsx";

@@ -11,7 +11,7 @@ import { useCallback } from "react";
 function WeatherIcon() {
   return (
     <>
-      <div className="weather-icon">
+      <div className="weather-icon" data-aos="fade-up">
         <img src={ICON["SUN"]} alt="Sun" />
       </div>
     </>
@@ -29,7 +29,11 @@ function WeatherInfo() {
       <WeatherIcon />
 
       <div className="weather-info">
-        <div className="weather-text">
+        <div
+          className="weather-text"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
           <h2>Today's Weather</h2>
           <div className="temperature">{current.temperature}°</div>
           <div className="high-low">
@@ -38,7 +42,11 @@ function WeatherInfo() {
           <div className="location">{current.location}</div>
         </div>
 
-        <div className="weather-details">
+        <div
+          className="weather-details"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
           <div className="detail datetime">
             <div className="detail-label">{current.datetime}</div>
           </div>
@@ -87,7 +95,12 @@ function WeatherHistoryItem(props: PWeatherHistoryItem) {
 
   return (
     <>
-      <div key={index} className="history-item">
+      <div
+        key={index}
+        className="history-item"
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+      >
         <div className="history-detail">
           <div className="history-location">{pData.location}</div>
 
@@ -128,7 +141,11 @@ function WeatherHistory() {
   return (
     <>
       {/* Search history section below the weather display */}
-      <div className="history-container">
+      <div
+        className="history-container"
+        data-aos="fade-up"
+        data-aos-delay={100}
+      >
         <h3>Search History</h3>
 
         <div className="history-items">

@@ -115,7 +115,7 @@ export function WeatherSearch() {
   );
 
   useOnceEffect(() => {
-    if (INIT_SEARCH_COUNTRY) onAPISearch(INIT_SEARCH_COUNTRY);
+    // if (INIT_SEARCH_COUNTRY) onAPISearch(INIT_SEARCH_COUNTRY);
   }, [INIT_SEARCH_COUNTRY]);
 
   return (
@@ -124,7 +124,11 @@ export function WeatherSearch() {
 
       {/* Search bar outside the main weather app box */}
       <form onSubmit={onSearch} className="search-container">
-        <div className="search-input-ctrl">
+        <div
+          className="search-input-ctrl"
+          data-aos="fade-down"
+          data-aos-delay="100"
+        >
           <div className="search-input">
             <span className="label">Country</span>
             <input
@@ -139,7 +143,11 @@ export function WeatherSearch() {
           )}
         </div>
 
-        <div className="search-input-ctrl">
+        <div
+          className="search-input-ctrl"
+          data-aos="fade-down"
+          data-aos-delay="200"
+        >
           <div className="search-input">
             <span className="label">City</span>
             <input type="text" value={search?.city ?? ""} onChange={onCity} />
@@ -147,7 +155,11 @@ export function WeatherSearch() {
           {error?.city && <span className="search-invalid">{error.city}</span>}
         </div>
 
-        <div className="search-buttons">
+        <div
+          className="search-buttons"
+          data-aos="fade-down"
+          data-aos-delay="300"
+        >
           <button type="submit" className="button">
             <i className="bx  bx-search"></i>
           </button>
