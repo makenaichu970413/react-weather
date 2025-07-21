@@ -1,6 +1,4 @@
 export const ICON = {
-  // SUN: `${BASE_PATH}/src/assets/sun.png`,
-  // CLOUD: `${BASE_PATH}/src/assets/cloud.png`,
   SUN: `assets/sun.png`,
   CLOUD: `assets/cloud.png`,
 };
@@ -8,7 +6,6 @@ export const ICON = {
 export const INIT_SEARCH_COUNTRY = "Singapore";
 
 export const API_KEY = import.meta.env.VITE_API_KEY_WEATHER;
-// export const API_KEY = "9f64903847641d555c146180624a5ca6";
 
 export const DOMAIN = {
   WEATHER: "https://api.openweathermap.org/",
