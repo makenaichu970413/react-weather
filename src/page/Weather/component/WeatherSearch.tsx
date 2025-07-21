@@ -115,7 +115,7 @@ export function WeatherSearch() {
   );
 
   useOnceEffect(() => {
-    // if (INIT_SEARCH_COUNTRY) onAPISearch(INIT_SEARCH_COUNTRY);
+    if (INIT_SEARCH_COUNTRY) onAPISearch(INIT_SEARCH_COUNTRY);
   }, [INIT_SEARCH_COUNTRY]);
 
   return (
