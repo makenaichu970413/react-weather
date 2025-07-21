@@ -5,7 +5,8 @@ import { useWeather } from "../context";
 import { ICON } from "../../../utils/constant";
 import type { TWeather } from "../../../utils/models";
 import { useWeatherSearch } from "../hook";
-import { useLoading } from "../../../context";
+import { useLoading, useModal } from "../../../context";
+import { useCallback } from "react";
 
 function WeatherIcon() {
   return (
@@ -60,14 +61,15 @@ type PWeatherHistoryItem = { data: TWeather; index: number };
 function WeatherHistoryItem(props: PWeatherHistoryItem) {
   const { data: pData, index } = props;
   const { showLoading, hideLoading } = useLoading();
+  const { setModal } = useModal();
   const { dispatch } = useWeather();
   const onWeatherSearch = useWeatherSearch();
 
-  const onDelete = () => {
+  const onDelete = useCallback(() => {
     dispatch({ type: "DELETE", payload: pData });
-  };
+  }, []);
 
-  const onSearch = async () => {
+  const onSearch = useCallback(async () => {
     const location = pData.location;
 
     showLoading();
@@ -75,12 +77,13 @@ function WeatherHistoryItem(props: PWeatherHistoryItem) {
     hideLoading();
 
     if (res.error) {
+      setModal({ open: true, isError: true, message: `${res.error}` });
     } else if (res.result) {
       const payload = res.result;
       dispatch({ type: "SET_CURRENT", payload });
       dispatch({ type: "INSERT", payload });
     }
-  };
+  }, [pData, onWeatherSearch]);
 
   return (
     <>

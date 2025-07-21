@@ -1,5 +1,5 @@
 //? Module
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { omit as _omit } from "lodash-es";
 
 //? Context & Hook
@@ -24,49 +24,95 @@ export function WeatherSearch() {
   const { dispatch } = useWeather();
   const onWeatherSearch = useWeatherSearch();
 
-  const onSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSearch = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
 
-    try {
-      const isError = Object.keys(error).length ? true : false;
+      try {
+        const isError = Object.keys(error).length ? true : false;
 
-      console.log("onSearch: ", { error, isError });
+        console.log("onSearch: ", { error, isError });
 
-      if (isError) throw Error("Please check your search input.");
+        if (isError) throw Error("Please verify your search input.");
 
-      const arr = [search?.country ?? null, search?.city ?? null].filter(
-        (item) => item
-      ) as string[];
+        const arr = [search?.country ?? null, search?.city ?? null].filter(
+          (item) => item
+        ) as string[];
 
-      if (!arr.length) throw Error("Please input your form.");
+        if (!arr.length) throw Error("Please complete the form fields.");
 
-      const location = arr.join(",");
-      onAPISearch(location);
-    } catch (err) {
-      setModal({ open: true, isError: true, message: `${err}` });
-    }
-  };
+        const location = arr.join(",");
+        onAPISearch(location);
+      } catch (err) {
+        setModal({ open: true, isError: true, message: `${err}` });
+      }
+    },
+    [error, search]
+  );
 
-  const onClear = (e: React.FormEvent) => {
+  const onClear = useCallback((e: React.FormEvent) => {
     e.stopPropagation();
     setSearch({});
     setError({});
-  };
+  }, []);
 
-  const onAPISearch = async (location: string) => {
-    showLoading();
-    const res = await onWeatherSearch({ location });
-    hideLoading();
+  const onAPISearch = useCallback(
+    async (location: string) => {
+      showLoading();
+      const res = await onWeatherSearch({ location });
+      hideLoading();
 
-    if (res.error) {
-      setModal({ open: true, isError: true, message: `${res.error}` });
-    } else if (res.result) {
-      const payload = res.result;
-      dispatch({ type: "SET_CURRENT", payload });
-      dispatch({ type: "INSERT", payload });
-      setSearch({});
-    }
-  };
+      if (res.error) {
+        setModal({ open: true, isError: true, message: `${res.error}` });
+      } else if (res.result) {
+        const payload = res.result;
+        dispatch({ type: "SET_CURRENT", payload });
+        dispatch({ type: "INSERT", payload });
+        setSearch({});
+      }
+    },
+    [onWeatherSearch]
+  );
+
+  const onCountry = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const newData: FWeatherSearch = { ...search, country: value };
+      setSearch(newData);
+      const error = await ValidateAT<VWeatherSearch, FWeatherSearch>({
+        key: "country",
+        validation: ValidWeather(),
+        data: newData,
+      });
+      setError((prev) => {
+        let temp = { ...prev };
+        if (error) temp["country"] = error;
+        else temp = _omit(temp, "country");
+        return temp;
+      });
+    },
+    [search]
+  );
+
+  const onCity = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const newData: FWeatherSearch = { ...search, city: value };
+      setSearch(newData);
+      const error = await ValidateAT<VWeatherSearch, FWeatherSearch>({
+        key: "city",
+        validation: ValidWeather(),
+        data: newData,
+      });
+      setError((prev) => {
+        let temp = { ...prev };
+        if (error) temp["city"] = error;
+        else temp = _omit(temp, "city");
+        return temp;
+      });
+    },
+    [search]
+  );
 
   useOnceEffect(() => {
     if (INIT_SEARCH_COUNTRY) onAPISearch(INIT_SEARCH_COUNTRY);
@@ -84,22 +130,7 @@ export function WeatherSearch() {
             <input
               type="text"
               value={search?.country ?? ""}
-              onChange={async (e) => {
-                const value = e.target.value;
-                const newData: FWeatherSearch = { ...search, country: value };
-                setSearch(newData);
-                const error = await ValidateAT<VWeatherSearch, FWeatherSearch>({
-                  key: "country",
-                  validation: ValidWeather(),
-                  data: newData,
-                });
-                setError((prev) => {
-                  let temp = { ...prev };
-                  if (error) temp["country"] = error;
-                  else temp = _omit(temp, "country");
-                  return temp;
-                });
-              }}
+              onChange={onCountry}
               placeholder={INIT_SEARCH_COUNTRY}
             />
           </div>
@@ -111,26 +142,7 @@ export function WeatherSearch() {
         <div className="search-input-ctrl">
           <div className="search-input">
             <span className="label">City</span>
-            <input
-              type="text"
-              value={search?.city ?? ""}
-              onChange={async (e) => {
-                const value = e.target.value;
-                const newData: FWeatherSearch = { ...search, city: value };
-                setSearch(newData);
-                const error = await ValidateAT<VWeatherSearch, FWeatherSearch>({
-                  key: "city",
-                  validation: ValidWeather(),
-                  data: newData,
-                });
-                setError((prev) => {
-                  let temp = { ...prev };
-                  if (error) temp["city"] = error;
-                  else temp = _omit(temp, "city");
-                  return temp;
-                });
-              }}
-            />
+            <input type="text" value={search?.city ?? ""} onChange={onCity} />
           </div>
           {error?.city && <span className="search-invalid">{error.city}</span>}
         </div>
